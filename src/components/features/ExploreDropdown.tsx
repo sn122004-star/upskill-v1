@@ -43,7 +43,7 @@ const ExploreDropdown: React.FC<ExploreDropdownProps> = ({ isOpen, onClose }) =>
                 type="button"
                 className="w-full text-left px-5 py-3.5 hover:bg-slate-50 flex items-center justify-between text-slate-700 hover:text-primary transition-colors font-medium border-b border-slate-50 last:border-0"
                 onClick={() => {
-                  navigate(`/trainers?category=${encodeURIComponent(category)}`);
+                  navigate(`/courses?category=${encodeURIComponent(category)}`);
                   onClose();
                 }}
               >

@@ -6,6 +6,7 @@ import Home from './pages/Home'
 import AboutUs from './pages/AboutUs'
 import CorporateTraining from './pages/CorporateTraining'
 import Trainers from './pages/Trainers'
+import Courses from './pages/Courses'
 import Blogs from './pages/Blogs'
 import ContactUs from './pages/ContactUs'
 
@@ -20,6 +21,7 @@ function App() {
             <Route path="/about" element={<AboutUs />} />
             <Route path="/corporate" element={<CorporateTraining />} />
             <Route path="/trainers" element={<Trainers />} />
+            <Route path="/courses" element={<Courses />} />
             <Route path="/blogs" element={<Blogs />} />
             <Route path="/contact" element={<ContactUs />} />
           </Routes>

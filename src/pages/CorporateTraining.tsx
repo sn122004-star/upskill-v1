@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 import Breadcrumbs from '../components/common/Breadcrumbs';
 import RegisterModal from '../components/features/RegisterModal';
 
-// Stock images from Unsplash
+// Presenter image
 const PRESENTER_IMG = "https://images.unsplash.com/photo-1524178232363-1fb2b075b655?q=80&w=600&auto=format&fit=crop";
 
 const CorporateTraining: React.FC = () => {
@@ -16,14 +16,20 @@ const CorporateTraining: React.FC = () => {
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
       transition={{ duration: 0.5 }}
-      className="pt-20"
+      className="pt-20 overflow-x-hidden"
     >
       
-      {/* 1. HERO SECTION WITH BREADCRUMBS */}
+      {/* 1. HERO SECTION */}
       <section className="bg-slate-50 py-16 px-4 sm:px-6">
         <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          
           {/* Text Area */}
-          <div className="space-y-6 text-center lg:text-left">
+          <motion.div 
+            initial={{ opacity: 0, x: -50 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+            className="space-y-6 text-center lg:text-left"
+          >
             <Breadcrumbs 
               items={[
                 { label: 'Home', path: '/' },
@@ -40,7 +46,7 @@ const CorporateTraining: React.FC = () => {
 
             <div className="flex flex-wrap items-center justify-center lg:justify-start gap-4">
               <Link
-                to="/trainers"
+                to="/courses"
                 className="border border-primary text-primary hover:bg-primary-light px-6 py-3 rounded-lg font-bold transition-all text-sm active:scale-95 shadow-sm"
               >
                 View Courses
@@ -52,10 +58,15 @@ const CorporateTraining: React.FC = () => {
                 Book Consultation
               </button>
             </div>
-          </div>
+          </motion.div>
 
           {/* Image Area */}
-          <div className="flex justify-center">
+          <motion.div 
+            initial={{ opacity: 0, x: 50 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+            className="flex justify-center"
+          >
             <div className="w-full max-w-[480px] aspect-[4/3] rounded-2xl overflow-hidden shadow-lg border border-slate-100 bg-slate-50">
               <motion.img 
                 whileHover={{ scale: 1.04 }}
@@ -65,12 +76,18 @@ const CorporateTraining: React.FC = () => {
                 className="w-full h-full object-cover"
               />
             </div>
-          </div>
+          </motion.div>
         </div>
       </section>
 
       {/* 2. OUR CLIENTS SECTION */}
-      <section className="bg-white py-20 px-4 sm:px-6">
+      <motion.section 
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.6 }}
+        className="bg-white py-20 px-4 sm:px-6"
+      >
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row md:items-center justify-between gap-6">
           <div className="text-left font-heading text-2xl font-extrabold text-navy shrink-0 select-none">
             Our Clients
@@ -106,7 +123,7 @@ const CorporateTraining: React.FC = () => {
             </div>
           </div>
         </div>
-      </section>
+      </motion.section>
 
       {/* Register Modal */}
       <RegisterModal 

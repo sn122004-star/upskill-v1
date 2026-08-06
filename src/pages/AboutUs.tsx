@@ -15,14 +15,20 @@ const AboutUs: React.FC = () => {
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
       transition={{ duration: 0.5 }}
-      className="pt-20"
+      className="pt-20 overflow-x-hidden"
     >
       
       {/* 1. HERO SECTION WITH BREADCRUMBS */}
       <section className="bg-slate-50 py-16 px-4 sm:px-6">
         <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          
           {/* Text Area */}
-          <div className="space-y-6">
+          <motion.div 
+            initial={{ opacity: 0, x: -50 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+            className="space-y-6"
+          >
             <Breadcrumbs 
               items={[
                 { label: 'Home', path: '/' },
@@ -36,10 +42,15 @@ const AboutUs: React.FC = () => {
             <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
               Prepare to take the next step in your career with the leading training provider globally. Begin your immersive learning journey with us.
             </p>
-          </div>
+          </motion.div>
 
           {/* Image Area */}
-          <div className="flex justify-center">
+          <motion.div 
+            initial={{ opacity: 0, x: 50 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+            className="flex justify-center"
+          >
             <div className="w-full max-w-[480px] aspect-[4/3] rounded-2xl overflow-hidden shadow-lg border border-slate-100 bg-slate-50">
               <motion.img 
                 whileHover={{ scale: 1.04 }}
@@ -49,7 +60,7 @@ const AboutUs: React.FC = () => {
                 className="w-full h-full object-cover"
               />
             </div>
-          </div>
+          </motion.div>
         </div>
       </section>
 
@@ -58,7 +69,13 @@ const AboutUs: React.FC = () => {
         <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
           
           {/* Left Column (Brand Logo view) */}
-          <div className="lg:col-span-5 flex justify-center">
+          <motion.div 
+            initial={{ opacity: 0, x: -50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="lg:col-span-5 flex justify-center"
+          >
             <div className="w-full max-w-[380px] rounded-2xl overflow-hidden shadow-md border border-slate-100 bg-white p-6 flex items-center justify-center">
               <motion.img 
                 whileHover={{ scale: 1.04 }}
@@ -68,55 +85,63 @@ const AboutUs: React.FC = () => {
                 className="w-full h-auto object-contain"
               />
             </div>
-          </div>
+          </motion.div>
 
-          {/* Right Column (Text details) */}
-          <div className="lg:col-span-7 space-y-5">
-            <span className="text-primary font-heading font-extrabold text-lg uppercase tracking-wider block">Who We Are</span>
-            <div className="w-12 h-1 bg-primary rounded" />
-            <p className="text-slate-600 leading-relaxed text-sm sm:text-base">
-              At UPSKILLSUSA LLC, we are passionate about driving professional growth and empowering individuals and organizations to thrive in today’s rapidly evolving business landscape. As a leading provider of comprehensive corporate training solutions, we offer a wide range of certification courses designed to enhance the skills and expertise of working professionals across various industries.
+          {/* Right Column (Text Content) */}
+          <motion.div 
+            initial={{ opacity: 0, x: 50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="lg:col-span-7 space-y-6"
+          >
+            <span className="text-primary font-heading font-extrabold text-xs tracking-wider uppercase block">Who We Are</span>
+            <h2 className="text-3xl sm:text-4xl font-extrabold font-heading text-navy leading-tight">
+              Leading Training Provider Globally
+            </h2>
+            <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
+              We are one of the leading training providers globally, specializing in professional certification courses. Our focus is on offering top-quality corporate learning programs that are tailored to meet the evolving demands of various industries.
             </p>
-          </div>
-
+            <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
+              With a commitment to excellence, we provide immersive learning experiences designed to help individuals and organizations acquire high-demand skills, validate their expertise, and succeed in a competitive global landscape.
+            </p>
+          </motion.div>
         </div>
       </section>
 
-      {/* 3. IMPRINTS STATS (Horizontal layout on white) */}
-      <section className="bg-slate-50/50 border-y border-slate-100 py-16 px-4 sm:px-6">
-        <div className="max-w-7xl mx-auto text-center space-y-12">
-          <h2 className="text-3xl font-extrabold font-heading text-navy">Imprints of UPSKILLSUSA!</h2>
-          
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-            <div className="space-y-1">
-              <h3 className="text-3xl sm:text-4xl font-extrabold font-heading text-primary">50 +</h3>
-              <p className="text-slate-500 font-semibold text-xs sm:text-sm">Curated Courses</p>
-            </div>
-            
-            <div className="space-y-1">
-              <h3 className="text-3xl sm:text-4xl font-extrabold font-heading text-primary">15,000 +</h3>
-              <p className="text-slate-500 font-semibold text-xs sm:text-sm">Students Enrolled</p>
-            </div>
-            
-            <div className="space-y-1">
-              <h3 className="text-3xl sm:text-4xl font-extrabold font-heading text-primary">30 +</h3>
-              <p className="text-slate-500 font-semibold text-xs sm:text-sm">Countries</p>
-            </div>
-            
-            <div className="space-y-1">
-              <h3 className="text-3xl sm:text-4xl font-extrabold font-heading text-primary">100 +</h3>
-              <p className="text-slate-500 font-semibold text-xs sm:text-sm">Trainers</p>
-            </div>
+      {/* 3. STATIC STATS STRIP */}
+      <motion.section 
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.6 }}
+        className="bg-primary py-12 px-4 sm:px-6 text-white text-center"
+      >
+        <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-center gap-8 md:gap-16">
+          <div className="space-y-1">
+            <h3 className="text-4xl sm:text-5xl font-extrabold font-heading">15,000+</h3>
+            <span className="text-xs sm:text-sm font-bold uppercase tracking-wider text-primary-light/75">Enrolled Students</span>
+          </div>
+          <div className="w-[1px] h-12 bg-white/20 hidden md:block" />
+          <div className="space-y-1">
+            <h3 className="text-4xl sm:text-5xl font-extrabold font-heading">250+</h3>
+            <span className="text-xs sm:text-sm font-bold uppercase tracking-wider text-primary-light/75">Corporate Clients</span>
           </div>
         </div>
-      </section>
+      </motion.section>
 
       {/* 4. VISION & MISSION CARDS */}
       <section className="bg-white py-20 px-4 sm:px-6">
         <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8">
           
           {/* Vision Card */}
-          <div className="bg-slate-50/70 border border-slate-100 rounded-2xl p-8 space-y-4 shadow-sm hover-elevate">
+          <motion.div 
+            initial={{ opacity: 0, x: -50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="bg-slate-50/70 border border-slate-100 rounded-2xl p-8 space-y-4 shadow-sm hover-elevate"
+          >
             <span className="text-primary font-heading font-extrabold text-xs tracking-wider uppercase block">Vision</span>
             <h3 className="text-xl sm:text-2xl font-extrabold font-heading text-navy leading-snug">
               Driving Transformation: Our Vision for Personal and Professional Growth
@@ -124,10 +149,16 @@ const AboutUs: React.FC = () => {
             <p className="text-slate-600 text-sm leading-relaxed">
               Our vision at UPSKILLSUSA LLC is to be the catalyst for personal and professional transformation. We aim to become the go-to platform for individuals seeking to enhance their skills, gain industry-recognized certifications, and advance their careers. We envision a future where learning is accessible, engaging, and aligned with the demands of the modern workforce.
             </p>
-          </div>
+          </motion.div>
 
           {/* Mission Card */}
-          <div className="bg-slate-50/70 border border-slate-100 rounded-2xl p-8 space-y-4 shadow-sm hover-elevate">
+          <motion.div 
+            initial={{ opacity: 0, x: 50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="bg-slate-50/70 border border-slate-100 rounded-2xl p-8 space-y-4 shadow-sm hover-elevate"
+          >
             <span className="text-primary font-heading font-extrabold text-xs tracking-wider uppercase block">Mission</span>
             <h3 className="text-xl sm:text-2xl font-extrabold font-heading text-navy leading-snug">
               Bridging the Skills Gap: Our Mission to Empower Individuals & Organizations
@@ -135,8 +166,7 @@ const AboutUs: React.FC = () => {
             <p className="text-slate-600 text-sm leading-relaxed">
               Our mission is to bridge the gap between current skills and future requirements by offering high-quality corporate training programs. We are committed to delivering comprehensive, practical, and industry-standard certifications that empower individuals and organizations to succeed. We strive to provide excellent training experiences that inspire growth and foster excellence.
             </p>
-          </div>
-
+          </motion.div>
         </div>
       </section>
 
@@ -145,7 +175,13 @@ const AboutUs: React.FC = () => {
         <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
           
           {/* Left Column (List) */}
-          <div className="lg:col-span-7 space-y-8">
+          <motion.div 
+            initial={{ opacity: 0, x: -50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="lg:col-span-7 space-y-8"
+          >
             <h2 className="text-3xl font-extrabold font-heading text-navy">Why UPSKILLSUSA LLC?</h2>
             
             <div className="space-y-6">
@@ -201,10 +237,16 @@ const AboutUs: React.FC = () => {
                 </div>
               </div>
             </div>
-          </div>
+          </motion.div>
 
-          {/* Right Column (Skyscrapers Image - repeated matching the reference) */}
-          <div className="lg:col-span-5 flex justify-center">
+          {/* Right Column (Skyscrapers Image) */}
+          <motion.div 
+            initial={{ opacity: 0, x: 50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="lg:col-span-5 flex justify-center"
+          >
             <div className="w-full max-w-[380px] aspect-[3/4] rounded-2xl overflow-hidden shadow-md border border-slate-100 bg-slate-50">
               <motion.img 
                 whileHover={{ scale: 1.04 }}
@@ -214,8 +256,7 @@ const AboutUs: React.FC = () => {
                 className="w-full h-full object-cover"
               />
             </div>
-          </div>
-
+          </motion.div>
         </div>
       </section>
 

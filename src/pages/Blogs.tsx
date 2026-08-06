@@ -225,7 +225,13 @@ const Blogs: React.FC = () => {
       <div className="h-10 md:h-16" />
 
       {/* 3. OUR RECENT POST SECTION */}
-      <section className="bg-slate-50/50 py-16 px-4 sm:px-6 border-t border-slate-100">
+      <motion.section 
+        initial={{ opacity: 0, y: 35 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.6 }}
+        className="bg-slate-50/50 py-16 px-4 sm:px-6 border-t border-slate-100"
+      >
         <div className="max-w-7xl mx-auto space-y-10">
           
           <div className="flex items-center justify-between border-b border-slate-100 pb-4">
@@ -341,10 +347,16 @@ const Blogs: React.FC = () => {
           </div>
 
         </div>
-      </section>
+      </motion.section>
 
       {/* 4. POPULAR POST SECTION */}
-      <section className="bg-white py-16 px-4 sm:px-6">
+      <motion.section 
+        initial={{ opacity: 0, y: 35 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.6 }}
+        className="bg-white py-16 px-4 sm:px-6"
+      >
         <div className="max-w-7xl mx-auto space-y-10">
           
           <div className="flex items-center justify-between border-b border-slate-100 pb-4">
@@ -430,7 +442,7 @@ const Blogs: React.FC = () => {
           </div>
 
         </div>
-      </section>
+      </motion.section>
 
       {/* 5. INDIVIDUAL BLOG POST DETAILED VIEW OVERLAY */}
       {selectedPost && (

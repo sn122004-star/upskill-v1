@@ -106,7 +106,12 @@ const Home: React.FC = () => {
         <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           
           {/* Left Text Block */}
-          <div className="space-y-6 text-center lg:text-left">
+          <motion.div 
+            initial={{ opacity: 0, x: -50 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+            className="space-y-6 text-center lg:text-left"
+          >
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-[1.1] text-navy">
               <span className="text-primary block lg:inline mr-2">Empowering</span> 
               Professionals for Tomorrow
@@ -123,10 +128,15 @@ const Home: React.FC = () => {
                 <ArrowRight className="w-4 h-4" />
               </Link>
             </div>
-          </div>
+          </motion.div>
 
           {/* Right Image Circle Block (with gentle floating parallax animations) */}
-          <div className="flex justify-center items-center relative">
+          <motion.div 
+            initial={{ opacity: 0, x: 50 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+            className="flex justify-center items-center relative"
+          >
             <motion.div 
               animate={{ y: [0, -10, 0] }}
               transition={{ repeat: Infinity, duration: 6, ease: "easeInOut" }}
@@ -196,7 +206,7 @@ const Home: React.FC = () => {
               </motion.div>
 
             </motion.div>
-          </div>
+          </motion.div>
 
         </div>
       </section>
@@ -241,7 +251,13 @@ const Home: React.FC = () => {
       </section>
 
       {/* 3. IMPRINTS STATS SECTION */}
-      <section className="bg-navy py-20 px-4 sm:px-6 text-white relative">
+      <motion.section 
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: "-80px" }}
+        transition={{ duration: 0.6 }}
+        className="bg-navy py-20 px-4 sm:px-6 text-white relative"
+      >
         <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
           
           {/* Left Column (Image) */}
@@ -292,10 +308,16 @@ const Home: React.FC = () => {
           </div>
 
         </div>
-      </section>
+      </motion.section>
 
       {/* 4. WHY UPSKILLS CERTIFICATIONS ? */}
-      <section className="bg-white py-20 px-4 sm:px-6">
+      <motion.section 
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: "-100px" }}
+        transition={{ duration: 0.6 }}
+        className="bg-white py-20 px-4 sm:px-6"
+      >
         <div className="max-w-7xl mx-auto space-y-16">
           
           {/* Centered Heading */}
@@ -370,10 +392,16 @@ const Home: React.FC = () => {
           </div>
 
         </div>
-      </section>
+      </motion.section>
 
       {/* 5. OUR TRAINERS CAROUSEL */}
-      <section className="bg-slate-50 py-20 px-4 sm:px-6">
+      <motion.section 
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: "-100px" }}
+        transition={{ duration: 0.6 }}
+        className="bg-slate-50 py-20 px-4 sm:px-6"
+      >
         <div className="max-w-7xl mx-auto space-y-12">
           
           <div className="text-center space-y-3">
@@ -429,10 +457,16 @@ const Home: React.FC = () => {
             </Link>
           </div>
         </div>
-      </section>
+      </motion.section>
 
       {/* 6. WHAT THEY SAY? TESTIMONIALS CAROUSEL */}
-      <section className="bg-white py-20 px-4 sm:px-6">
+      <motion.section 
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: "-100px" }}
+        transition={{ duration: 0.6 }}
+        className="bg-white py-20 px-4 sm:px-6"
+      >
         <div className="max-w-7xl mx-auto space-y-12">
           
           <div className="text-center space-y-4">
@@ -500,7 +534,7 @@ const Home: React.FC = () => {
           </div>
 
         </div>
-      </section>
+      </motion.section>
 
       {/* 7. CALL TO ACTION BANNER (EDISON LIGHTBULBS) */}
       <section className="mx-4 sm:mx-6 my-16 max-w-7xl lg:mx-auto relative rounded-2xl overflow-hidden bg-navy text-white text-center py-20 px-6 sm:px-12 select-none shadow-xl">

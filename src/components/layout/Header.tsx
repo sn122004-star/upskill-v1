@@ -140,28 +140,28 @@ const Header: React.FC = () => {
                 <div className="grid grid-cols-2 gap-2 text-xs font-bold text-slate-600">
                   <button 
                     type="button"
-                    onClick={() => { navigate('/trainers?category=SAFE'); setIsMobileMenuOpen(false); }}
+                    onClick={() => { navigate('/courses?category=SAFE'); setIsMobileMenuOpen(false); }}
                     className="p-2 border border-slate-100 rounded-lg text-left hover:bg-slate-50 hover:text-primary"
                   >
                     SAFE
                   </button>
                   <button 
                     type="button"
-                    onClick={() => { navigate('/trainers?category=Project%20Management'); setIsMobileMenuOpen(false); }}
+                    onClick={() => { navigate('/courses?category=Project%20Management'); setIsMobileMenuOpen(false); }}
                     className="p-2 border border-slate-100 rounded-lg text-left hover:bg-slate-50 hover:text-primary"
                   >
                     Project Mgmt
                   </button>
                   <button 
                     type="button"
-                    onClick={() => { navigate('/trainers?category=Lean%20and%20Six%20Sigma'); setIsMobileMenuOpen(false); }}
+                    onClick={() => { navigate('/courses?category=Lean%20and%20Six%20Sigma'); setIsMobileMenuOpen(false); }}
                     className="p-2 border border-slate-100 rounded-lg text-left hover:bg-slate-50 hover:text-primary"
                   >
                     Six Sigma
                   </button>
                   <button 
                     type="button"
-                    onClick={() => { navigate('/trainers?category=Agile%20and%20Scrum'); setIsMobileMenuOpen(false); }}
+                    onClick={() => { navigate('/courses?category=Agile%20and%20Scrum'); setIsMobileMenuOpen(false); }}
                     className="p-2 border border-slate-100 rounded-lg text-left hover:bg-slate-50 hover:text-primary"
                   >
                     Agile & Scrum

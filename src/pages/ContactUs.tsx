@@ -67,7 +67,12 @@ const ContactUs: React.FC = () => {
         <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
           
           {/* Left Column: Contact details */}
-          <div className="lg:col-span-6 space-y-10">
+          <motion.div 
+            initial={{ opacity: 0, x: -50 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6 }}
+            className="lg:col-span-6 space-y-10"
+          >
             <div className="space-y-4">
               <h1 className="text-4xl sm:text-5xl font-extrabold font-heading text-navy tracking-tight">
                 Get In Touch
@@ -111,10 +116,15 @@ const ContactUs: React.FC = () => {
                 </div>
               </div>
             </div>
-          </div>
+          </motion.div>
 
           {/* Right Column: Contact form */}
-          <div className="lg:col-span-6 bg-white border border-slate-100 rounded-2xl p-6 sm:p-8 shadow-lg hover-elevate">
+          <motion.div 
+            initial={{ opacity: 0, x: 50 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6 }}
+            className="lg:col-span-6 bg-white border border-slate-100 rounded-2xl p-6 sm:p-8 shadow-lg hover-elevate"
+          >
             {isSubmitted ? (
               <div className="flex flex-col items-center justify-center py-16 text-center">
                 <CheckCircle2 className="w-16 h-16 text-green-500 mb-4 animate-bounce" />
@@ -191,7 +201,7 @@ const ContactUs: React.FC = () => {
 
               </form>
             )}
-          </div>
+          </motion.div>
 
         </div>
       </section>
