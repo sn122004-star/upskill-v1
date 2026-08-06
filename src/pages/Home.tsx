@@ -121,7 +121,7 @@ const Home: React.FC = () => {
             </p>
             <div className="flex justify-center lg:justify-start">
               <Link
-                to="/trainers"
+                to="/courses"
                 className="bg-primary hover:bg-primary-hover text-white px-8 py-3.5 rounded-lg font-bold transition-all shadow-lg shadow-primary/20 flex items-center space-x-2 active:scale-95"
               >
                 <span>Explore Courses</span>
@@ -553,7 +553,7 @@ const Home: React.FC = () => {
           
           <div className="flex flex-wrap items-center justify-center gap-4 pt-4">
             <Link
-              to="/trainers"
+              to="/courses"
               className="bg-primary hover:bg-primary-hover text-white px-8 py-3 rounded-lg font-bold transition-all text-sm shadow-lg shadow-primary/20 active:scale-95 w-full sm:w-auto"
             >
               View Courses

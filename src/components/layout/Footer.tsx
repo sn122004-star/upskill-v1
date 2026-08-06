@@ -57,10 +57,10 @@ const Footer: React.FC = () => {
             <div className="flex flex-col space-y-3.5 col-span-1 sm:col-span-2">
               <h3 className="font-heading font-bold text-navy text-sm tracking-wider uppercase">Popular Courses</h3>
               <ul className="space-y-2.5 text-sm font-semibold text-slate-500">
-                <li><Link to="/trainers" className="hover:text-primary transition-colors">PMP® Certification Training</Link></li>
-                <li><Link to="/trainers" className="hover:text-primary transition-colors">CAPM® Certification Training</Link></li>
-                <li><Link to="/trainers" className="hover:text-primary transition-colors">PgMP® Certification Training</Link></li>
-                <li><Link to="/trainers" className="hover:text-primary transition-colors">ITIL 4 Foundation Training</Link></li>
+                 <li><Link to="/courses?category=Project%20Management" className="hover:text-primary transition-colors">PMP® Certification Training</Link></li>
+                 <li><Link to="/courses?category=Project%20Management" className="hover:text-primary transition-colors">CAPM® Certification Training</Link></li>
+                 <li><Link to="/courses?category=Project%20Management" className="hover:text-primary transition-colors">PgMP® Certification Training</Link></li>
+                 <li><Link to="/courses?category=IT%20Service%20and%20Architecture" className="hover:text-primary transition-colors">ITIL 4 Foundation Training</Link></li>
               </ul>
             </div>
           </div>
