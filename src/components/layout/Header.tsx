@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { Link, NavLink } from 'react-router-dom';
-import { Search, ChevronDown, ChevronUp, Menu, X } from 'lucide-react';
+import { Link, NavLink, useNavigate } from 'react-router-dom';
+import { Search, ChevronDown, Menu, X } from 'lucide-react';
 import ExploreDropdown from '../features/ExploreDropdown';
 import RegisterModal from '../features/RegisterModal';
 
@@ -8,10 +8,11 @@ const Header: React.FC = () => {
   const [isExploreOpen, setIsExploreOpen] = useState(false);
   const [isRegisterOpen, setIsRegisterOpen] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const navigate = useNavigate();
 
   return (
     <>
-      <header className="fixed top-0 left-0 w-full bg-white border-b border-slate-100 z-40 h-20 shadow-sm transition-all duration-300">
+      <header className="fixed top-0 left-0 w-full bg-white/85 backdrop-blur-md border-b border-slate-200/50 z-40 h-20 shadow-[0_2px_15px_rgba(9,23,43,0.02)] transition-all duration-300">
         <div className="max-w-7xl mx-auto h-full flex items-center justify-between px-4 sm:px-6">
           
           {/* Logo on the left */}
@@ -34,40 +35,12 @@ const Header: React.FC = () => {
             </div>
           </Link>
 
-          {/* Search bar inside header (desktop) */}
-          <div className="hidden lg:flex items-center flex-1 max-w-md mx-8 relative">
-            <div className="w-full flex items-center border border-slate-200 rounded-lg overflow-hidden shadow-inner focus-within:ring-2 focus-within:ring-primary/20 focus-within:border-primary transition-all">
-              <div className="pl-3.5 text-slate-400">
-                <Search className="w-4 h-4" />
-              </div>
-              <input
-                type="text"
-                placeholder="Search courses..."
-                className="w-full px-3 py-2 text-sm text-slate-800 placeholder-slate-400 bg-transparent focus:outline-none"
-              />
-              <button
-                type="button"
-                className="bg-slate-50 border-l border-slate-200 px-4 py-2 text-xs font-semibold text-slate-600 hover:bg-slate-100 transition-colors flex items-center space-x-1.5 active:bg-slate-200 select-none shrink-0"
-                onClick={() => setIsExploreOpen(!isExploreOpen)}
-              >
-                <span>Explore</span>
-                {isExploreOpen ? <ChevronUp className="w-3.5 h-3.5" /> : <ChevronDown className="w-3.5 h-3.5" />}
-              </button>
-            </div>
-            
-            {/* Category Dropdown */}
-            <ExploreDropdown 
-              isOpen={isExploreOpen} 
-              onClose={() => setIsExploreOpen(false)} 
-            />
-          </div>
-
-          {/* Navigation Links (desktop) */}
-          <nav className="hidden md:flex items-center space-x-3 lg:space-x-5 text-slate-600 text-sm font-semibold">
+          {/* Navigation Links centered (desktop) */}
+          <nav className="hidden md:flex items-center space-x-4 lg:space-x-7 text-slate-600 text-sm font-semibold">
             <NavLink 
               to="/about" 
               className={({ isActive }) => 
-                `px-1.5 py-1 transition-colors fancy-link hover:text-primary ${
+                `px-1 py-1 transition-colors fancy-link hover:text-primary ${
                   isActive ? 'text-primary font-bold' : 'text-slate-600'
                 }`
               }
@@ -77,7 +50,7 @@ const Header: React.FC = () => {
             <NavLink 
               to="/corporate" 
               className={({ isActive }) => 
-                `px-1.5 py-1 transition-colors fancy-link hover:text-primary ${
+                `px-1 py-1 transition-colors fancy-link hover:text-primary ${
                   isActive ? 'text-primary font-bold' : 'text-slate-600'
                 }`
               }
@@ -87,7 +60,7 @@ const Header: React.FC = () => {
             <NavLink 
               to="/trainers" 
               className={({ isActive }) => 
-                `px-1.5 py-1 transition-colors fancy-link hover:text-primary ${
+                `px-1 py-1 transition-colors fancy-link hover:text-primary ${
                   isActive ? 'text-primary font-bold' : 'text-slate-600'
                 }`
               }
@@ -97,7 +70,7 @@ const Header: React.FC = () => {
             <NavLink 
               to="/blogs" 
               className={({ isActive }) => 
-                `px-1.5 py-1 transition-colors fancy-link hover:text-primary ${
+                `px-1 py-1 transition-colors fancy-link hover:text-primary ${
                   isActive ? 'text-primary font-bold' : 'text-slate-600'
                 }`
               }
@@ -107,7 +80,7 @@ const Header: React.FC = () => {
             <NavLink 
               to="/contact" 
               className={({ isActive }) => 
-                `px-1.5 py-1 transition-colors fancy-link hover:text-primary ${
+                `px-1 py-1 transition-colors fancy-link hover:text-primary ${
                   isActive ? 'text-primary font-bold' : 'text-slate-600'
                 }`
               }
@@ -116,11 +89,30 @@ const Header: React.FC = () => {
             </NavLink>
           </nav>
 
-          {/* Action buttons on the right */}
-          <div className="flex items-center space-x-3">
+          {/* Action buttons on the right (desktop/mobile toggle) */}
+          <div className="flex items-center space-x-3.5">
+            
+            {/* Explore Courses Dropdown Action Button */}
+            <div className="relative hidden lg:block">
+              <button
+                type="button"
+                onClick={() => setIsExploreOpen(!isExploreOpen)}
+                className="inline-flex items-center space-x-2 text-sm font-bold text-slate-700 hover:text-primary hover:bg-slate-50 transition-all px-4 py-2 rounded-xl border border-slate-200/80 active:scale-95 select-none"
+              >
+                <Search className="w-4 h-4 text-slate-400" />
+                <span>Explore Courses</span>
+                <ChevronDown className={`w-4 h-4 text-slate-400 transition-transform duration-200 ${isExploreOpen ? 'rotate-180 text-primary' : ''}`} />
+              </button>
+              
+              <ExploreDropdown 
+                isOpen={isExploreOpen} 
+                onClose={() => setIsExploreOpen(false)} 
+              />
+            </div>
+
             <button
               onClick={() => setIsRegisterOpen(true)}
-              className="hidden sm:inline-flex bg-primary hover:bg-primary-hover text-white px-5 py-2.5 rounded-lg text-sm font-semibold transition-colors shadow-md shadow-primary/10 active:scale-[0.98] select-none"
+              className="hidden sm:inline-flex bg-primary hover:bg-primary-hover text-white px-5 py-2.5 rounded-xl text-sm font-bold transition-colors shadow-md shadow-primary/10 active:scale-[0.98] select-none"
             >
               Register Now
             </button>
@@ -139,20 +131,46 @@ const Header: React.FC = () => {
 
         {/* Mobile Navigation Drawer */}
         {isMobileMenuOpen && (
-          <div className="md:hidden fixed top-20 left-0 w-full bg-white border-b border-slate-100 shadow-lg py-4 px-6 z-30 animate-in slide-in-from-top duration-200">
-            <div className="flex flex-col space-y-4">
-              {/* Search Bar for Mobile */}
-              <div className="w-full flex items-center border border-slate-200 rounded-lg overflow-hidden pr-3">
-                <input
-                  type="text"
-                  placeholder="Search courses..."
-                  className="w-full px-4 py-2 text-sm text-slate-800 focus:outline-none"
-                />
-                <Search className="w-4 h-4 text-slate-400" />
+          <div className="md:hidden fixed top-20 left-0 w-full bg-white border-b border-slate-100 shadow-xl py-6 px-6 z-30 animate-in slide-in-from-top duration-200">
+            <div className="flex flex-col space-y-5">
+              
+              {/* Category Quick Selector for Mobile */}
+              <div className="space-y-2">
+                <span className="text-xs font-bold text-slate-400 uppercase tracking-wider">Explore Categories</span>
+                <div className="grid grid-cols-2 gap-2 text-xs font-bold text-slate-600">
+                  <button 
+                    type="button"
+                    onClick={() => { navigate('/trainers?category=SAFE'); setIsMobileMenuOpen(false); }}
+                    className="p-2 border border-slate-100 rounded-lg text-left hover:bg-slate-50 hover:text-primary"
+                  >
+                    SAFE
+                  </button>
+                  <button 
+                    type="button"
+                    onClick={() => { navigate('/trainers?category=Project%20Management'); setIsMobileMenuOpen(false); }}
+                    className="p-2 border border-slate-100 rounded-lg text-left hover:bg-slate-50 hover:text-primary"
+                  >
+                    Project Mgmt
+                  </button>
+                  <button 
+                    type="button"
+                    onClick={() => { navigate('/trainers?category=Lean%20and%20Six%20Sigma'); setIsMobileMenuOpen(false); }}
+                    className="p-2 border border-slate-100 rounded-lg text-left hover:bg-slate-50 hover:text-primary"
+                  >
+                    Six Sigma
+                  </button>
+                  <button 
+                    type="button"
+                    onClick={() => { navigate('/trainers?category=Agile%20and%20Scrum'); setIsMobileMenuOpen(false); }}
+                    className="p-2 border border-slate-100 rounded-lg text-left hover:bg-slate-50 hover:text-primary"
+                  >
+                    Agile & Scrum
+                  </button>
+                </div>
               </div>
 
               {/* Mobile Links */}
-              <div className="flex flex-col space-y-3.5 font-medium text-slate-700">
+              <div className="flex flex-col space-y-4 font-semibold text-slate-700 border-t border-slate-50 pt-4">
                 <NavLink 
                   to="/about" 
                   onClick={() => setIsMobileMenuOpen(false)}
@@ -195,7 +213,7 @@ const Header: React.FC = () => {
                   setIsMobileMenuOpen(false);
                   setIsRegisterOpen(true);
                 }}
-                className="w-full bg-primary hover:bg-primary-hover text-white py-3 rounded-lg text-sm font-semibold transition-colors shadow-md text-center"
+                className="w-full bg-primary hover:bg-primary-hover text-white py-3.5 rounded-xl text-sm font-bold transition-colors shadow-md text-center"
               >
                 Register Now
               </button>

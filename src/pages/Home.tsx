@@ -353,7 +353,7 @@ const Home: React.FC = () => {
             <div className="lg:col-span-7 space-y-4">
               <h3 className="text-2xl font-extrabold font-heading text-navy">Cost-effective Solutions</h3>
               <p className="text-slate-600 leading-relaxed text-sm sm:text-base">
-                Simpliaxis has opened a new door of success for professionals by allowing them to attend web-based career advancement courses. Learners can enroll in corporate learning programs from anywhere globally to assist organizations that run multiple branches simultaneously around the globe.
+                UPSKILLSUSA LLC has opened a new door of success for professionals by allowing them to attend web-based career advancement courses. Learners can enroll in corporate learning programs from anywhere globally to assist organizations that run multiple branches simultaneously around the globe.
               </p>
             </div>
             <div className="lg:col-span-5 flex justify-center">
@@ -362,7 +362,7 @@ const Home: React.FC = () => {
                   whileHover={{ scale: 1.04 }}
                   transition={{ duration: 0.4, ease: "easeOut" }}
                   src={WHY_3_LAPTOP} 
-                  alt="Simpliaxis Global Solutions" 
+                  alt="Global Learning Solutions" 
                   className="w-full h-full object-cover" 
                 />
               </div>
