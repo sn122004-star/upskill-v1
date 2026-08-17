@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link, NavLink, useNavigate } from 'react-router-dom';
-import { Search, ChevronDown, Menu, X } from 'lucide-react';
+import { Search, ChevronDown, Menu, X, Sun, Moon } from 'lucide-react';
 import ExploreDropdown from '../features/ExploreDropdown';
 import RegisterModal from '../features/RegisterModal';
 
@@ -8,7 +8,19 @@ const Header: React.FC = () => {
   const [isExploreOpen, setIsExploreOpen] = useState(false);
   const [isRegisterOpen, setIsRegisterOpen] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [theme, setTheme] = useState<'light' | 'black'>(() => {
+    return (localStorage.getItem('theme') as 'light' | 'black') || 'light';
+  });
   const navigate = useNavigate();
+
+  useEffect(() => {
+    document.documentElement.setAttribute('data-theme', theme);
+    localStorage.setItem('theme', theme);
+  }, [theme]);
+
+  const toggleTheme = () => {
+    setTheme(prev => prev === 'light' ? 'black' : 'light');
+  };
 
   return (
     <>
@@ -109,6 +121,16 @@ const Header: React.FC = () => {
                 onClose={() => setIsExploreOpen(false)} 
               />
             </div>
+
+            {/* Theme Toggle Button */}
+            <button
+              type="button"
+              onClick={toggleTheme}
+              className="p-2.5 rounded-xl border border-slate-200/80 hover:bg-slate-50 text-slate-500 hover:text-primary transition-all active:scale-95 cursor-pointer mr-2 select-none"
+              title="Toggle theme"
+            >
+              {theme === 'light' ? <Moon className="w-4 h-4" /> : <Sun className="w-4 h-4 text-amber-500" />}
+            </button>
 
             <button
               onClick={() => setIsRegisterOpen(true)}

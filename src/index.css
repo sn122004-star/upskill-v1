@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap');
 @import "tailwindcss";
 
-@theme {
+:root {
   --color-primary: #154E85;
   --color-primary-hover: #0E3963;
   --color-primary-light: #F0F5FA;
@@ -11,6 +11,145 @@
   --color-accent-red: #D32F2F;
   --color-bg-gray: #F8FAFC;
   --color-border-gray: #E2E8F0;
+  --color-body-bg: #ffffff;
+  --color-text-main: #334155;
+  --color-text-title: #09172B;
+}
+
+html[data-theme="black"] {
+  --color-primary: #E53935; /* Medium Red */
+  --color-primary-hover: #C62828; /* Darker/Medium Red */
+  --color-primary-light: #3a1115; /* Dark Red background / light red accent */
+  --color-navy: #FFFFFF;
+  --color-accent-green: #0E9F6E;
+  --color-accent-orange: #E67E22;
+  --color-accent-red: #EF5350; /* Light Red */
+  --color-bg-gray: #0D0D0D;
+  --color-border-gray: #1E1E1E;
+  --color-body-bg: #000000;
+  --color-text-main: #94A3B8;
+  --color-text-title: #FFFFFF;
+
+  /* Force background/text adjustments on general elements */
+  body {
+    background-color: #000000 !important;
+    color: #94A3B8 !important;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    color: #FFFFFF !important;
+  }
+
+  /* Override specific layout utility colors */
+  .bg-white, .bg-white\/85, .bg-white\/95 {
+    background-color: #080808 !important;
+  }
+
+  .bg-slate-50, .bg-slate-50\/50, .bg-slate-50\/70 {
+    background-color: #0D0D0D !important;
+  }
+
+  .bg-navy {
+    background-color: #050505 !important;
+    border-color: #1A1A1A !important;
+  }
+
+  /* Spans / details */
+  .text-navy, .text-slate-800 {
+    color: #FFFFFF !important;
+  }
+
+  .text-slate-700 {
+    color: #E2E8F0 !important;
+  }
+
+  .text-slate-600 {
+    color: #94A3B8 !important;
+  }
+
+  .text-slate-500 {
+    color: #64748B !important;
+  }
+
+  .text-slate-400 {
+    color: #475569 !important;
+  }
+
+  /* Specific brand texts */
+  .text-\[\#002B49\] {
+    color: #FFFFFF !important;
+  }
+  
+  .text-\[\#C8102E\] {
+    color: #EF5350 !important; /* Light Red */
+  }
+
+  .bg-red-50 {
+    background-color: #2D0F12 !important; /* Dark Red tint */
+  }
+
+  .text-accent-red {
+    color: #EF5350 !important; /* Light Red */
+  }
+
+  /* Borders */
+  .border-slate-50, .border-slate-100, .border-slate-200, .border-slate-200\/80, .border-slate-200\/50, .border-slate-300 {
+    border-color: #1E1E1E !important;
+  }
+
+  /* List highlights */
+  .hover\:bg-slate-50:hover {
+    background-color: #161616 !important;
+  }
+
+  .hover\:text-navy:hover {
+    color: #FFFFFF !important;
+  }
+
+  /* Glass Panels */
+  .glass-panel {
+    background: rgba(8, 8, 8, 0.85) !important;
+    border-color: rgba(30, 30, 30, 0.5) !important;
+  }
+
+  .glass-dropdown {
+    background: rgba(10, 10, 10, 0.95) !important;
+    border-color: rgba(30, 30, 30, 0.5) !important;
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.8), 0 8px 10px -6px rgba(0, 0, 0, 0.8) !important;
+  }
+
+  header {
+    background-color: rgba(5, 5, 5, 0.85) !important;
+    border-bottom-color: rgba(30, 30, 30, 0.5) !important;
+  }
+
+  footer {
+    background-color: #050505 !important;
+    border-top-color: #1E1E1E !important;
+  }
+
+  /* Scrollbars */
+  ::-webkit-scrollbar-track {
+    background: #080808;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #1E1E1E;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #333333;
+  }
+}
+
+@theme {
+  --color-primary: var(--color-primary);
+  --color-primary-hover: var(--color-primary-hover);
+  --color-primary-light: var(--color-primary-light);
+  --color-navy: var(--color-navy);
+  --color-accent-green: var(--color-accent-green);
+  --color-accent-orange: var(--color-accent-orange);
+  --color-accent-red: var(--color-accent-red);
+  --color-bg-gray: var(--color-bg-gray);
+  --color-border-gray: var(--color-border-gray);
   --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
   --font-heading: 'Outfit', system-ui, -apple-system, sans-serif;
 }
@@ -18,13 +157,15 @@
 @layer base {
   body {
     font-family: var(--font-sans);
-    background-color: #ffffff;
-    color: #334155;
+    background-color: var(--color-body-bg);
+    color: var(--color-text-main);
+    transition: background-color 0.3s ease, color 0.3s ease;
   }
   
   h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-heading);
     letter-spacing: -0.02em;
+    color: var(--color-text-title);
   }
 }
 
