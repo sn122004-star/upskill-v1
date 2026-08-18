@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link, NavLink, useNavigate } from 'react-router-dom';
-import { Search, ChevronDown, Menu, X, Sun, Moon } from 'lucide-react';
+import { Search, ChevronDown, Menu, X, Sun, Moon, Palette } from 'lucide-react';
 import ExploreDropdown from '../features/ExploreDropdown';
 import RegisterModal from '../features/RegisterModal';
 
@@ -8,8 +8,8 @@ const Header: React.FC = () => {
   const [isExploreOpen, setIsExploreOpen] = useState(false);
   const [isRegisterOpen, setIsRegisterOpen] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [theme, setTheme] = useState<'light' | 'black'>(() => {
-    return (localStorage.getItem('theme') as 'light' | 'black') || 'light';
+  const [theme, setTheme] = useState<'light' | 'black' | 'red'>(() => {
+    return (localStorage.getItem('theme') as 'light' | 'black' | 'red') || 'light';
   });
   const navigate = useNavigate();
 
@@ -19,7 +19,11 @@ const Header: React.FC = () => {
   }, [theme]);
 
   const toggleTheme = () => {
-    setTheme(prev => prev === 'light' ? 'black' : 'light');
+    setTheme(prev => {
+      if (prev === 'light') return 'black';
+      if (prev === 'black') return 'red';
+      return 'light';
+    });
   };
 
   return (
@@ -127,9 +131,11 @@ const Header: React.FC = () => {
               type="button"
               onClick={toggleTheme}
               className="p-2.5 rounded-xl border border-slate-200/80 hover:bg-slate-50 text-slate-500 hover:text-primary transition-all active:scale-95 cursor-pointer mr-2 select-none"
-              title="Toggle theme"
+              title={`Active: ${theme} - Toggle theme`}
             >
-              {theme === 'light' ? <Moon className="w-4 h-4" /> : <Sun className="w-4 h-4 text-amber-500" />}
+              {theme === 'light' && <Moon className="w-4 h-4" />}
+              {theme === 'black' && <Palette className="w-4 h-4 text-[#EF5350]" />}
+              {theme === 'red' && <Sun className="w-4 h-4 text-amber-500 animate-pulse" />}
             </button>
 
             <button
