@@ -8,8 +8,8 @@ const Header: React.FC = () => {
   const [isExploreOpen, setIsExploreOpen] = useState(false);
   const [isRegisterOpen, setIsRegisterOpen] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [theme, setTheme] = useState<'light' | 'black' | 'red'>(() => {
-    return (localStorage.getItem('theme') as 'light' | 'black' | 'red') || 'light';
+  const [theme, setTheme] = useState<'red' | 'black' | 'blue'>(() => {
+    return (localStorage.getItem('theme') as 'red' | 'black' | 'blue') || 'red';
   });
   const navigate = useNavigate();
 
@@ -20,9 +20,9 @@ const Header: React.FC = () => {
 
   const toggleTheme = () => {
     setTheme(prev => {
-      if (prev === 'light') return 'black';
-      if (prev === 'black') return 'red';
-      return 'light';
+      if (prev === 'red') return 'black';
+      if (prev === 'black') return 'blue';
+      return 'red';
     });
   };
 
@@ -133,9 +133,9 @@ const Header: React.FC = () => {
               className="p-2.5 rounded-xl border border-slate-200/80 hover:bg-slate-50 text-slate-500 hover:text-primary transition-all active:scale-95 cursor-pointer mr-2 select-none"
               title={`Active: ${theme} - Toggle theme`}
             >
-              {theme === 'light' && <Moon className="w-4 h-4" />}
+              {theme === 'red' && <Sun className="w-4 h-4 text-[#F59E0B] animate-pulse" />}
               {theme === 'black' && <Palette className="w-4 h-4 text-[#EF5350]" />}
-              {theme === 'red' && <Sun className="w-4 h-4 text-amber-500 animate-pulse" />}
+              {theme === 'blue' && <Moon className="w-4 h-4 text-[#154E85]" />}
             </button>
 
             <button
