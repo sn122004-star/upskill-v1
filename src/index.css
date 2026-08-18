@@ -141,125 +141,123 @@ html[data-theme="black"] {
 }
 
 html[data-theme="red"] {
-  --color-primary: #C8102E; /* Crimson Red from Logo */
-  --color-primary-hover: #9E0C22;
-  --color-primary-light: #4E1015;
-  --color-navy: #FFFFFF;
+  --color-primary: #C8102E; /* Crimson Red */
+  --color-primary-hover: #F59E0B; /* Amber Gold */
+  --color-primary-light: #FFF8E1; /* Light yellow background */
+  --color-navy: #09172B;
   --color-accent-green: #0E9F6E;
-  --color-accent-orange: #E67E22;
-  --color-accent-red: #EF5350;
-  --color-bg-gray: #1E0406; /* Deep crimson bg */
-  --color-border-gray: #401217; /* Crimson border */
-  --color-body-bg: #150204; /* Dark burgundy body */
-  --color-text-main: #E5C3C6; /* Soft pinkish-gray */
-  --color-text-title: #FFFFFF;
+  --color-accent-orange: #F59E0B;
+  --color-accent-red: #C8102E;
+  --color-bg-gray: #FAFAFA;
+  --color-border-gray: #E5E7EB;
+  --color-body-bg: #FFFFFF;
+  --color-text-main: #374151;
+  --color-text-title: #C8102E; /* Crimson titles */
 
   body {
-    background-color: #150204 !important;
-    color: #E5C3C6 !important;
+    background-color: #FFFFFF !important;
+    color: #374151 !important;
   }
 
   h1, h2, h3, h4, h5, h6 {
-    color: #FFFFFF !important;
-  }
-
-  /* Override specific layout utility colors */
-  .bg-white, .bg-white\/85, .bg-white\/95 {
-    background-color: #240508 !important; /* Dark crimson card bg */
-  }
-
-  .bg-slate-50, .bg-slate-50\/50, .bg-slate-50\/70 {
-    background-color: #1C0305 !important;
-  }
-
-  .bg-navy {
-    background-color: #0E0102 !important;
-    border-color: #380C10 !important;
-  }
-
-  /* Spans / details */
-  .text-navy, .text-slate-800 {
-    color: #FFFFFF !important;
-  }
-
-  .text-slate-700 {
-    color: #F0D5D8 !important;
-  }
-
-  .text-slate-600 {
-    color: #E5C3C6 !important;
-  }
-
-  .text-slate-500 {
-    color: #B28E91 !important;
-  }
-
-  .text-slate-400 {
-    color: #8C6A6D !important;
+    color: #C8102E !important; /* Crimson titles */
   }
 
   /* Specific brand texts */
   .text-\[\#002B49\] {
-    color: #FFFFFF !important;
+    color: #C8102E !important;
   }
   
   .text-\[\#C8102E\] {
-    color: #FF5252 !important; /* Vivid Red */
+    color: #F59E0B !important;
+  }
+
+  /* Text elements */
+  .text-navy, .text-slate-800 {
+    color: #C8102E !important;
+  }
+
+  .text-slate-700 {
+    color: #4B5563 !important;
+  }
+
+  .text-slate-600 {
+    color: #4B5563 !important;
+  }
+
+  .text-slate-500 {
+    color: #6B7280 !important;
+  }
+
+  .text-slate-400 {
+    color: #9CA3AF !important;
+  }
+
+  /* Buttons & CTAs */
+  .bg-primary {
+    background-color: #C8102E !important;
+  }
+
+  .hover\:bg-primary-hover:hover {
+    background-color: #F59E0B !important;
+  }
+
+  .text-primary {
+    color: #C8102E !important;
+  }
+
+  .hover\:text-primary:hover {
+    color: #F59E0B !important;
   }
 
   .bg-red-50 {
-    background-color: #3D0D12 !important;
+    background-color: #FFF8E1 !important; /* Amber light tint */
   }
 
   .text-accent-red {
-    color: #FF5252 !important;
+    color: #C8102E !important;
   }
 
-  /* Borders */
-  .border-slate-50, .border-slate-100, .border-slate-200, .border-slate-200\/80, .border-slate-200\/50, .border-slate-300 {
-    border-color: #3D0C11 !important;
-  }
-
-  /* List highlights */
-  .hover\:bg-slate-50:hover {
-    background-color: #33080C !important;
-  }
-
-  .hover\:text-navy:hover {
-    color: #FFFFFF !important;
-  }
-
-  /* Glass Panels */
+  /* Glassmorphism panel tinting in red theme */
   .glass-panel {
-    background: rgba(36, 5, 8, 0.85) !important;
-    border-color: rgba(61, 12, 17, 0.5) !important;
+    background: rgba(255, 255, 255, 0.9) !important;
+    border-color: rgba(200, 16, 46, 0.15) !important;
   }
 
   .glass-dropdown {
-    background: rgba(28, 3, 5, 0.95) !important;
-    border-color: rgba(61, 12, 17, 0.5) !important;
-    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.8), 0 8px 10px -6px rgba(0, 0, 0, 0.8) !important;
+    background: rgba(255, 255, 255, 0.98) !important;
+    border-color: rgba(200, 16, 46, 0.15) !important;
+    box-shadow: 0 10px 25px -5px rgba(200, 16, 46, 0.08), 0 8px 10px -6px rgba(200, 16, 46, 0.08) !important;
   }
 
   header {
-    background-color: rgba(20, 2, 4, 0.85) !important;
-    border-bottom-color: rgba(61, 12, 17, 0.5) !important;
+    background-color: rgba(255, 255, 255, 0.9) !important;
+    border-bottom-color: rgba(200, 16, 46, 0.15) !important;
   }
 
   footer {
-    background-color: #0E0102 !important;
-    border-top-color: #3D0C11 !important;
+    background-color: #FAFAFA !important;
+    border-top-color: rgba(200, 16, 46, 0.15) !important;
+  }
+
+  /* Fancy links and underlines */
+  .fancy-link::after {
+    background-color: #C8102E !important;
+  }
+
+  .fancy-link:hover::after {
+    background-color: #F59E0B !important;
   }
 
   /* Scrollbars */
   ::-webkit-scrollbar-track {
-    background: #1C0305;
+    background: #FAFAFA;
   }
   ::-webkit-scrollbar-thumb {
-    background: #3D0C11;
+    background: #E5E7EB;
   }
   ::-webkit-scrollbar-thumb:hover {
-    background: #5A161E;
+    background: #C8102E;
   }
 }
 
